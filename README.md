@@ -15,9 +15,12 @@
 [![Last Commit](https://img.shields.io/github/last-commit/rupnil-codes/Hangman-Python)](https://github.com/rupnil-codes/Hangman-Python/commits/main/ "Commit History")
 
 > [!CAUTION]
-> Excavation *kinda works* as of right now. I'm still working on polishing the app!
+> Excavation *kinda NOT works* as of right now. I'm still working on the app!
 
-Excavation is a psychological horror game that incorporates the mechanics of the Hangman game.
+Excavation is a psychological horror game that incorporates some mechanics of the Hangman game.
+
+### Contributors:
+Crtitics on Story: [@sekqies](https://github.com/Sekqies/), [@SeradedStripes](https://github.com/SeradedStripes) and [@Taksh Patel](https://github.com/takshcpatel) 
 
 ## TODO:
 - [ ] Better UI!
