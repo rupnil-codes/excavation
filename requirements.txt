@@ -1,5 +1,2 @@
-pillow
-textual-image
-textual~=7.3.0
-textual-dev~=1.8.0
-keyboard
+textual~=7.5.0
+rich~=14.3.2

@@ -25,9 +25,9 @@ class MainMenu(Screen):
 
         for i in range(len(self.menu_items)):
             if self.selected == i:
-                yield Label("[b]>_[/b] " + self.menu_items[i])
+                yield Label("[b] ►[/b] " + self.menu_items[i])
             else:
-                yield Label(self.menu_items[i])
+                yield Label("  " + self.menu_items[i])
 
     # def on_mount(self) -> None:
     #     self.screen.styles.background = "darkblue"
