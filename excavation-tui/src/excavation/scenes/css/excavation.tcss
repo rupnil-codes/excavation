@@ -1,0 +1,18 @@
+
+Screen {
+    align: left top;
+    background: #0F0F0F;
+    border: heavy white;
+    padding: 3 0 0 10;
+    /*border-top: solid blue;*/
+    /*hatch: cross green;*/
+}
+
+#logo{
+    margin: 0 0 1 0;
+    width: 53;
+    height: 5;
+    min-width: 53;
+    min-height: 5;
+    /*margin: 1 0 0 5;*/
+}

@@ -10,6 +10,9 @@ from rich.text import Text
 class MainMenu(Screen):
     CSS = """
 
+Static {
+    align: center bottom;
+}
 """
     selected = 0
     menu_items = [
