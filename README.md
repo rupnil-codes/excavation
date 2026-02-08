@@ -23,9 +23,4 @@ Excavation is a psychological horror game that incorporates some mechanics of th
 Crtitics on Story: [@sekqies](https://github.com/Sekqies/), [@SeradedStripes](https://github.com/SeradedStripes) and [@Taksh Patel](https://github.com/takshcpatel) 
 
 ## TODO:
-- [ ] Better UI!
-- [ ] add a section "used letters" and the user can enable or disable it or u show it based on difficulty
-- [ ] give the play a hint when they keep guessing wrong letters e.g. "This word has 2 vowels", "A" is in the word, etc
-- [ ] add "play again" that takes u to the difficulty page
-- [ ] A Twist!
-- [ ] gamemodes! classic, speedrun, horror, etc ; too lazy to choose so make the default mode random 
+- [ ] A strange text for 0.5 - 0.75 sec while starting the game. related to the lore but gibberish at the start

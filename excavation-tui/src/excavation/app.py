@@ -1,10 +1,9 @@
-from textual.app import App, ComposeResult
+from textual.app import App
 from textual import events
-from textual.widgets import Label
 from scenes.MainMenu import MainMenu
 
-class Excavation(App[None]):
-    CSS_PATH = "scenes\\css\\excavation.css"
+class Excavation(App):
+    CSS_PATH = "scenes\\css\\excavation.tcss"
 
     def on_key(self, event: events.Key) -> None:
         if event.key == "escape":
@@ -12,7 +11,6 @@ class Excavation(App[None]):
 
     def on_mount(self) -> None:
         self.push_screen(MainMenu())
-
 
 if __name__ == "__main__":
 

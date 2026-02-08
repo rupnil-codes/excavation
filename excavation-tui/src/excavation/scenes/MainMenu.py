@@ -1,37 +1,111 @@
+from textual.containers import Container
 from textual.screen import Screen
-from textual.widgets import Static, Label
-from textual.app import App, ComposeResult
+from textual.widgets import Static, Button
+from textual.app import ComposeResult
 
-from textual import events
+from textual import events, on
 
-from .utils.cli import logo
+from .utils.logo import logo
 from rich.text import Text
 
 class MainMenu(Screen):
     CSS = """
+    #logo{
+        margin: 0 0 1 0;
+        width: 53;
+        height: 5;
+        min-width: 53;
+        min-height: 5;
+        /*margin: 1 0 0 5;*/
+    }
 
-Static {
-    align: center bottom;
-}
+    /* NEW: This holds the text and the box together */
+    #wrapper {
+        width: auto;
+        height: auto;
+        align: center middle;
+        layout: vertical;
+    }
+
+    #choice_text {
+        text-align: center;
+        color: yellow;
+        margin-bottom: 1;
+    }
+
+    #menu-box {
+        width: 53;
+        height: auto;
+        border: panel white;
+        padding: 1 1 0 1;
+        margin: 0 0 0 0;
+    }
+
+    Button {
+        width: 100%;
+        margin-bottom: 1;
+        background: transparent;
+        color: white;
+        border: none;
+        text-style: none;
+        text-align: center;
+    }
+    
+    Button:focus {
+        background: white;
+        color: black;
+        text-style: bold;
+    }
+    
+    Button:hover {
+        background: #222222;
+        color: white;
+    }
+    
+    Button.-disabled {
+        color: #444444;
+        background: black;
+    }
 """
-    selected = 0
-    menu_items = [
-        "New Game",
-        "Load Save",
-        "Settings",
-        "Preference",
-        "Quit",
-    ]
+    index = None
+    buttons = None
 
     def compose(self) -> ComposeResult:
-        yield Static(Text.from_ansi("\n".join(logo)), expand=False)
+        with Container(id="wrapper"):
+            yield Static(Text.from_ansi("\n".join(logo)), expand=False, id="logo")
 
-        for i in range(len(self.menu_items)):
-            if self.selected == i:
-                yield Label("[b] ►[/b] " + self.menu_items[i])
-            else:
-                yield Label("  " + self.menu_items[i])
+            with Container(id="menu-box"):
+                yield Button("New Game", id="new")
+                yield Button("Load Save", id="load")
+                yield Button("Settings", id="settings")
+                yield Button("Quit", id="quit")
 
-    # def on_mount(self) -> None:
-    #     self.screen.styles.background = "darkblue"
-    #     self.push_screen(IntroScreen())
+
+    def on_mount(self) -> None:
+        self.call_after_refresh(
+            lambda: self.query_one("#new").focus()
+        )
+
+        self.query_one("#menu-box").border_title = "[b]Main Menu[/b]"
+        self.query_one("#menu-box").border_subtitle = "v0.1-alpha"
+
+        self.buttons = self.query("#menu-box Button")
+        self.index = 0
+        self.buttons[self.index].focus()
+
+        # self.push_screen(IntroScreen())
+
+    @on(Button.Pressed)
+    def handle_menu_click(self, event: Button.Pressed):
+        # TODO:
+        if event.button.id == "new":
+            self.screen.styles.animate("opacity", value=0.0, duration=2.0)
+
+
+    def _on_key(self, event: events.Key) -> None:
+        if event.key in ("up", "w"):
+            self.index = (self.index - 1) % len(self.buttons)
+            self.buttons[self.index].focus()
+        elif event.key in ("down", "s"):
+            self.index = (self.index + 1) % len(self.buttons)
+            self.buttons[self.index].focus()
