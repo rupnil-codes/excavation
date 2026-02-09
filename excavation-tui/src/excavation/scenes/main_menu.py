@@ -5,25 +5,15 @@ from textual.app import ComposeResult
 
 from textual import events, on
 
-from .utils.logo import logo
+from config import VERSION, RELEASE
+
+from widgets.logo import logo
 from rich.text import Text
 
 class MainMenu(Screen):
     CSS = """
-    #logo{
-        margin: 0 0 1 0;
-        width: 53;
-        height: 5;
-        min-width: 53;
-        min-height: 5;
-        /*margin: 1 0 0 5;*/
-    }
-
     /* NEW: This holds the text and the box together */
     #wrapper {
-        width: auto;
-        height: auto;
-        align: center middle;
         layout: vertical;
     }
 
@@ -34,7 +24,7 @@ class MainMenu(Screen):
     }
 
     #menu-box {
-        width: 53;
+        width: 57;
         height: auto;
         border: panel white;
         padding: 1 1 0 1;
@@ -53,7 +43,7 @@ class MainMenu(Screen):
     
     Button:focus {
         background: white;
-        color: black;
+        color: #0F0F0F;
         text-style: bold;
     }
     
@@ -67,6 +57,7 @@ class MainMenu(Screen):
         background: black;
     }
 """
+
     index = None
     buttons = None
 
@@ -87,7 +78,7 @@ class MainMenu(Screen):
         )
 
         self.query_one("#menu-box").border_title = "[b]Main Menu[/b]"
-        self.query_one("#menu-box").border_subtitle = "v0.1-alpha"
+        self.query_one("#menu-box").border_subtitle = f"{VERSION}-{RELEASE}"
 
         self.buttons = self.query("#menu-box Button")
         self.index = 0
@@ -99,7 +90,20 @@ class MainMenu(Screen):
     def handle_menu_click(self, event: Button.Pressed):
         # TODO:
         if event.button.id == "new":
-            self.screen.styles.animate("opacity", value=0.0, duration=2.0)
+            self.screen.styles.animate(
+                "opacity", value=0.0, duration=2,
+                on_complete=lambda: self.app.switch_screen("splash_screen")
+            )
+
+
+        if event.button.id == "load":
+            pass
+
+        if event.button.id == "settings":
+            pass
+
+        if event.button.id == "quit":
+            self.app.exit()
 
 
     def _on_key(self, event: events.Key) -> None:

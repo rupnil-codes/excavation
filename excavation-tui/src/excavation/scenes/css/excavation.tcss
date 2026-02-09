@@ -1,9 +1,0 @@
-
-Screen {
-    align: center middle;
-    background: #0F0F0F;
-    border: heavy white;
-    /*padding: 3 0 0 10;*/
-    /*border-top: solid blue;*/
-    /*hatch: cross green;*/
-}

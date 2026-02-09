@@ -1,0 +1,24 @@
+
+Screen {
+    align: center middle;
+    background: #0F0F0F;
+    border: heavy white;
+    /*padding: 3 0 0 10;*/
+    /*border-top: solid blue;*/
+    /*hatch: cross green;*/
+}
+
+#wrapper {
+    width: auto;
+    height: auto;
+    align: center middle;
+}
+
+#logo{
+    margin: 0 0 1 0;
+    width: 57;
+    height: 5;
+    min-width: 57;
+    min-height: 5;
+    /*margin: 1 0 0 5;*/
+}

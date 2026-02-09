@@ -24,3 +24,4 @@ Crtitics on Story: [@sekqies](https://github.com/Sekqies/), [@SeradedStripes](ht
 
 ## TODO:
 - [ ] A strange text for 0.5 - 0.75 sec while starting the game. related to the lore but gibberish at the start
+
