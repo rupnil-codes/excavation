@@ -1,3 +1,5 @@
+import os
+
 from textual.containers import Container
 from textual.screen import Screen
 from textual.widgets import Static, Button
@@ -6,8 +8,9 @@ from textual.app import ComposeResult
 from textual import events, on
 
 from config import VERSION, RELEASE
+from widgets import type_sfx, menu, fade_out
 
-from widgets.logo import logo
+from widgets import logo
 from rich.text import Text
 
 class MainMenu(Screen):
@@ -29,6 +32,8 @@ class MainMenu(Screen):
         border: panel white;
         padding: 1 1 0 1;
         margin: 0 0 0 0;
+        # border-subtitle-style: "Centered Subtitle";
+        border-subtitle-align: right;
     }
 
     Button {
@@ -43,7 +48,7 @@ class MainMenu(Screen):
     
     Button:focus {
         background: white;
-        color: #0F0F0F;
+        color: #0d0d0d;
         text-style: bold;
     }
     
@@ -73,6 +78,7 @@ class MainMenu(Screen):
 
 
     def on_mount(self) -> None:
+        menu()
         self.call_after_refresh(
             lambda: self.query_one("#new").focus()
         )
@@ -90,6 +96,8 @@ class MainMenu(Screen):
     def handle_menu_click(self, event: Button.Pressed):
         # TODO:
         if event.button.id == "new":
+            type_sfx()
+            fade_out(2)
             self.screen.styles.animate(
                 "opacity", value=0.0, duration=2,
                 on_complete=lambda: self.app.switch_screen("splash_screen")
@@ -97,19 +105,24 @@ class MainMenu(Screen):
 
 
         if event.button.id == "load":
+            type_sfx()
             pass
 
         if event.button.id == "settings":
+            type_sfx()
             pass
 
         if event.button.id == "quit":
+            type_sfx()
             self.app.exit()
 
 
     def _on_key(self, event: events.Key) -> None:
         if event.key in ("up", "w"):
             self.index = (self.index - 1) % len(self.buttons)
+            type_sfx()
             self.buttons[self.index].focus()
         elif event.key in ("down", "s"):
             self.index = (self.index + 1) % len(self.buttons)
+            type_sfx()
             self.buttons[self.index].focus()

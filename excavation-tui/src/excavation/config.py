@@ -1,2 +1,9 @@
-VERSION="v0.1.3"
-RELEASE="alpha"
+# APP CONFIG
+
+VERSION = "v0.1.3.2"
+RELEASE = "alpha"
+AUTHOR = "Rupnil Codes"
+
+# GAME CONFIG
+
+DEFAULT_NAME = "PLAYER"

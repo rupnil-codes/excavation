@@ -1,7 +1,7 @@
 
 Screen {
     align: center middle;
-    background: #0F0F0F;
+    background: #0d0d0d;
     border: heavy white;
     /*padding: 3 0 0 10;*/
     /*border-top: solid blue;*/
