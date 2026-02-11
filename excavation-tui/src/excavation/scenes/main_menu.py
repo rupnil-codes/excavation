@@ -8,7 +8,7 @@ from textual.app import ComposeResult
 from textual import events, on
 
 from config import VERSION, RELEASE
-from widgets import type_sfx, menu, fade_out
+from widgets import play_track, play_sound
 
 from widgets import logo
 from rich.text import Text
@@ -78,7 +78,7 @@ class MainMenu(Screen):
 
 
     def on_mount(self) -> None:
-        menu()
+        play_track("menu_track")
         self.call_after_refresh(
             lambda: self.query_one("#new").focus()
         )
@@ -96,8 +96,7 @@ class MainMenu(Screen):
     def handle_menu_click(self, event: Button.Pressed):
         # TODO:
         if event.button.id == "new":
-            type_sfx()
-            fade_out(2)
+            play_sound("type")
             self.screen.styles.animate(
                 "opacity", value=0.0, duration=2,
                 on_complete=lambda: self.app.switch_screen("splash_screen")
@@ -105,24 +104,24 @@ class MainMenu(Screen):
 
 
         if event.button.id == "load":
-            type_sfx()
+            play_sound("type")
             pass
 
         if event.button.id == "settings":
-            type_sfx()
+            play_sound("type")
             pass
 
         if event.button.id == "quit":
-            type_sfx()
+            play_sound("type")
             self.app.exit()
 
 
     def _on_key(self, event: events.Key) -> None:
         if event.key in ("up", "w"):
             self.index = (self.index - 1) % len(self.buttons)
-            type_sfx()
+            play_sound("type")
             self.buttons[self.index].focus()
         elif event.key in ("down", "s"):
             self.index = (self.index + 1) % len(self.buttons)
-            type_sfx()
+            play_sound("type")
             self.buttons[self.index].focus()

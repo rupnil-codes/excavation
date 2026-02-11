@@ -1,13 +1,12 @@
 from textual.containers import Container
 from textual.widgets import Label
 
-from widgets.utils.sounds_manager import glitch_sfx, stop
-
 class FlashMessage(Container):
-    def __init__(self, function, time: float, message: str = "Flash Message") -> None:
+    def __init__(self, start_function, end_function, time: float, message: str = "Flash Message") -> None:
         super().__init__()
         self.message = message
-        self.function = function
+        self.start_function = start_function
+        self.end_function = end_function
         self.time = time
 
     def compose(self):
@@ -18,12 +17,11 @@ class FlashMessage(Container):
             )
 
     def on_mount(self) -> None:
-        glitch_sfx()
+        self.start_function()
         self.set_timer(
             self.time,
             self.remove
         )
 
     def on_unmount(self) -> None:
-        stop()
-        self.function()
+        self.end_function()

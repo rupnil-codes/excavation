@@ -4,7 +4,15 @@ from textual.screen import Screen
 from textual.widgets import Static, Label
 from textual.app import ComposeResult
 
-from widgets import FlashMessage, logo, username
+from widgets import (
+    FlashMessage,
+    logo,
+    username,
+    play_sound,
+    fade_out,
+    stop
+)
+
 from config import AUTHOR
 
 class SplashScreen(Screen):
@@ -24,7 +32,9 @@ class SplashScreen(Screen):
             yield Static(Text.from_ansi("\n".join(logo)), expand=False, id="logo")
             yield Label(f"A Game by {AUTHOR} <3")
 
-    def flash_unmount_function(self):
+    def flash_end_function(self):
+        stop()
+        fade_out(2)
         self.set_timer(
             1,
             lambda: self.screen.styles.animate(
@@ -33,14 +43,24 @@ class SplashScreen(Screen):
             )
         )
 
+    @staticmethod
+    def flash_start_function(self):
+        play_sound(
+            "glitch",
+            volume=0.8,
+        )
+
     def flash_message(self):
+        message = f"[reverse][b][i]Help me, {username()}[/i][/b][/reverse]\n[dim][i]Save, me.[/i][/]"
+
         self.set_timer(
             1.25,
             lambda: self.mount(
                 FlashMessage(
-                    self.flash_unmount_function,
+                    self.flash_start_function,
+                    self.flash_end_function,
                     1.5,
-                    f"[reverse][b][i]Help me, {username()}[/i][/b][/reverse]\n[dim][i]Save, me.[/i][/]"
+                    message
                 )
             ),
         )
