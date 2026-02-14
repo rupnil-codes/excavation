@@ -44,7 +44,7 @@ class SplashScreen(Screen):
         )
 
     @staticmethod
-    def flash_start_function(self):
+    def flash_start_function():
         play_sound(
             "glitch",
             volume=0.8,
@@ -69,6 +69,7 @@ class SplashScreen(Screen):
         self.screen.styles.opacity = 0
         self.screen.styles.animate(
             "opacity", value=1.0, duration=1.5,
-            on_complete=self.flash_message,
+            # on_complete=self.flash_message,
+            on_complete=self.flash_end_function,
         )
 

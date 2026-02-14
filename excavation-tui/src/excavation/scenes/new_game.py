@@ -3,6 +3,8 @@ from textual.screen import Screen
 from textual.widgets import Static, Label
 from textual.app import ComposeResult
 
+from widgets import username, glitch_text
+
 class NewGame(Screen):
     CSS = """
     #wrapper {
@@ -11,11 +13,26 @@ class NewGame(Screen):
         align: center middle;
         layout: vertical;
     }
+    
+    #help {
+        color: rgb(255,50,50);
+    }
     """
+
+    label = None
+    message1 = None
+    message2 = None
+    newline = None
+    final_message = None
+
     def compose(self) -> ComposeResult:
         with Container(id="wrapper"):
-            yield Label("NEW GAME SCENE")
+            self.label = Label(f"[reverse][b][i]Help me, {username()}[/i][/b][/reverse]\n[dim][i]Save, me.[/i][/]", id="help")
+            yield self.label
 
     def on_mount(self) -> None:
         self.screen.styles.opacity = 0
-        self.screen.styles.animate("opacity", value=1.0, duration=1)
+        self.screen.styles.animate(
+            "opacity", value=1.0, duration=1.5,
+            on_complete=lambda: self.app.switch_screen("prologue")
+        )

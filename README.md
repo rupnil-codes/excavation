@@ -20,8 +20,11 @@
 Excavation is a psychological horror game that incorporates some mechanics of the Hangman game.
 
 ### Contributors:
-Crtitics on Story: [@sekqies](https://github.com/Sekqies/), [@SeradedStripes](https://github.com/SeradedStripes) and [@Taksh Patel](https://github.com/takshcpatel) 
+[@sekqies](https://github.com/Sekqies/), [@SeradedStripes](https://github.com/SeradedStripes) and [@Taksh Patel](https://github.com/takshcpatel), [@Flux3tor](https://github.com/Flux3tor/)
 
 ## TODO:
-- [ ] A strange text for 0.5 - 0.75 sec while starting the game. related to the lore but gibberish at the start
+- [X] A strange text for 0.5 - 0.75 sec while starting the game. related to the lore but gibberish at the start
+- [ ] Polish the FlashScreen
+- [ ] Better sound effects
+- [ ] Prologue / Intro
 
