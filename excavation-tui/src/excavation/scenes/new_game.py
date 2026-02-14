@@ -25,14 +25,10 @@ class NewGame(Screen):
     newline = None
     final_message = None
 
-    def compose(self) -> ComposeResult:
-        with Container(id="wrapper"):
-            self.label = Label(f"[reverse][b][i]Help me, {username()}[/i][/b][/reverse]\n[dim][i]Save, me.[/i][/]", id="help")
-            yield self.label
+    # def compose(self) -> ComposeResult:
+    #     with Container(id="wrapper"):
+    #         self.label = Label(f"[reverse][b][i]Help me, {username()}[/i][/b][/reverse]\n[dim][i]Save, me.[/i][/]", id="help")
+    #         yield self.label
 
     def on_mount(self) -> None:
-        self.screen.styles.opacity = 0
-        self.screen.styles.animate(
-            "opacity", value=1.0, duration=1.5,
-            on_complete=lambda: self.app.switch_screen("prologue")
-        )
+        self.app.switch_screen("prologue")

@@ -49,7 +49,7 @@ Screen {
         self.install_screen(SplashScreen(), "splash_screen")
         self.install_screen(Prologue(), "prologue")
 
-        self.push_screen("prologue")
+        self.push_screen("main_menu")
 
 if __name__ == "__main__":
 
