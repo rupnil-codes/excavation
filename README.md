@@ -23,8 +23,10 @@ Excavation is a psychological horror game that incorporates some mechanics of th
 [@sekqies](https://github.com/Sekqies/), [@SeradedStripes](https://github.com/SeradedStripes) and [@Taksh Patel](https://github.com/takshcpatel), [@Flux3tor](https://github.com/Flux3tor/)
 
 ## TODO:
-- [X] A strange text for 0.5 - 0.75 sec while starting the game. related to the lore but gibberish at the start
+- [ ] An instructions screen disguised as a loading screen
+- [ ] Flash a window showing the username of the PC during/before the prologue.
 - [ ] Polish the FlashScreen
 - [ ] Better sound effects
 - [ ] Prologue / Intro
+- [ ] Add micro interactions in the prologue
 

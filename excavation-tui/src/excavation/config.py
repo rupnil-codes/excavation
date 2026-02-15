@@ -1,6 +1,6 @@
 # APP CONFIG
 
-VERSION = "v0.1.4.2"
+VERSION = "v0.1.4.3"
 RELEASE = "alpha"
 AUTHOR = "Rupnil Codes"
 
