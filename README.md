@@ -20,7 +20,7 @@
 Excavation is a psychological horror game that incorporates some mechanics of the Hangman game.
 
 ### Contributors:
-[@sekqies](https://github.com/Sekqies/), [@SeradedStripes](https://github.com/SeradedStripes) and [@Taksh Patel](https://github.com/takshcpatel), [@Flux3tor](https://github.com/Flux3tor/)
+[@sekqies](https://github.com/Sekqies/), [@SeradedStripes](https://github.com/SeradedStripes), [@Taksh Patel](https://github.com/takshcpatel), & [@Flux3tor](https://github.com/Flux3tor/)
 
 ## TODO:
 - [ ] An instructions screen disguised as a loading screen
